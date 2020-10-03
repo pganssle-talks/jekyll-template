@@ -13,7 +13,7 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="{{ site.reveal_path }}css/reveal.css">
+		<link rel="stylesheet" href="{{ site.reveal_path }}dist/reveal.css">
 		<link rel="stylesheet" href="{{ site.reveal_theme_path }}{{ site.reveal_theme }}" id="theme">
 {% if site.extra_css %}
     {% for css_file in site.extra_css %}
@@ -31,7 +31,7 @@
 
 		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
 		<script>
-			document.write( '<link rel="stylesheet" href="{{ site.reveal_path }}css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+			document.write( '<link rel="stylesheet" href="{{ site.reveal_path }}css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.scss" type="text/x-scss" media="print">' );
 		</script>
 
 		<!--[if lt IE 9]>
@@ -57,20 +57,21 @@
 
 		</div>
 
-		<script src="{{ site.reveal_path }}lib/js/head.min.js"></script>
-		<script src="{{ site.reveal_path }}js/reveal.js"></script>
+		{% comment %} <script src="{{ site.reveal_path }}lib/js/head.min.js"></script> {% endcomment %}
+		<script src="{{ site.reveal_path }}dist/reveal.js"></script>
 
 		<script>
 
 			// Full list of configuration options available here:
 			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
+            let r = Reveal()
+			r.initialize({
 				controls: true,
 				progress: true,
 				history: true,
 				center: true,
 
-				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				theme: r.getQueryHash().theme, // available themes are in /css/theme
 				transition: '{{ site.reveal_transition }}', // default/cube/page/concave/zoom/linear/fade/none
 
                 {% if site.reveal_options %}

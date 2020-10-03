@@ -4,7 +4,7 @@
 reveal_path: reveal.js/
 reveal_theme: white.css
 reveal_transition: linear
-reveal_theme_path: reveal.js/css/theme/
+reveal_theme_path: reveal.js/dist/theme/
 
 # Additional reveal.js options
 reveal_options:
